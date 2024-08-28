@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/* CONFIG GERAIS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #000;
+}
+
+/* FIM CONFIG GERAIS */
+
+/* CONFIG HEADER */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
+  z-index: 100;
+
+  .logo img {
+    width: 150px;
+  }
+}
+
+.navigation {
+  display: flex;
+  li {
+    list-style: none;
+    margin: 0 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  li:hover a {
+    color: #da0611;
+  }
+}
+
+.search {
+  position: relative;
+  width: 300px;
+  height: 40px;
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    outline: none;
+    border-radius: 4px;
+    padding: 0 10px 0 45px;
+    backdrop-filter: blur(10px);
+  }
+
+  input::placeholder {
+    color: #fff;
+  }
+
+  .fa-search {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    padding-right: 50px;
+    color: #fff;
+    border-radius: 1px solid #fff;
+  }
+}
+
+/* FIM CONFIG HEADER */
+
+/* CONFIG SECTION BANNER */
+.banner {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    max-width: 550px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    h4 {
+      color: #f9f9f9;
+      font-weight: 500;
+
+      span {
+        padding: 0 10px;
+        border-right: 1px solid #f9f9f9;
+
+        i {
+          background: #da0611;
+          padding: 0 8px;
+          display: inline-block;
+          font-style: normal;
+          border-radius: 2px;
+        }
+      }
+
+      span:first-child {
+        padding-left: 0;
+      }
+
+      span:last-child {
+        border-right: none;
+      }
+    }
+
+    .movieTitle {
+      max-width: 250px;
+      margin-top: -20px;
+      margin-bottom: -50px;
+      margin-left: -10px;
+    }
+
+    p {
+      font-size: 1em;
+      font-weight: 300;
+      line-height: 1.5em;
+      margin: 10px 0 20px 0;
+      color: #f9f9f9;
+      text-align: justify;
+    }
+
+    .buttons a {
+      position: relative;
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 20px;
+      background: #da0611;
+      color: #f9f9f9;
+      padding: 6px 20px;
+      text-decoration: none;
+      font-weight: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    a:nth-child(2) {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    a:hover:nth-child(2) {
+      background-color: #da0611;
+      transition: all ease 0.5s;
+    }
+  }
+
+  .play {
+    position: absolute;
+    bottom: 50px;
+    left: 100px;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #da0611;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    img {
+      margin-left: 10px;
+      margin-right: 10px;
+      max-width: 50px;
+    }
+  }
+}
+/* FIM CONFIG SECTION BANNER */
+
+/* CONFIG TRAILER */
+
+.trailer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s ease-in-out;
+}
+
+.trailer.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.trailer video {
+  width: 80%;
+  height: auto;
+  z-index: 10001;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 10%;
+  cursor: pointer;
+  filter: invert(1);
+  max-width: 32px;
+  z-index: 10002;
+}
+
+/* FIM CONFIG TRAILER */
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 991px) {
+  header {
+    padding: 20px 50px;
+    flex-direction: column;
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+
+  .banner {
+    padding: 100px 50px;
+  }
+
+  .banner .play {
+    left: 50px;
+    font-size: 1em;
+  }
+
+  .play img {
+    margin-right: 10px;
+    max-width: 40px;
+  }
+
+  .trailer video {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 20px;
+  }
+
+  .search {
+    position: relative;
+    width: calc(100% - 20px);
+    height: 40px;
+  }
+
+  .banner {
+    padding: 220px 20px;
+  }
+}
+
+/* FIM RESPONSIVIDADE */
